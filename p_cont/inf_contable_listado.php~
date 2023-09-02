@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="style.css" type="text/css">
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />
+  <title>Tablabla inf_contable By Christian Máculus</title>
+</head>
+
+
+
+<center>
+<?php
+include("connect.php");
+$query="select * from inf_contable limit 0,1000";
+$result=mysql_query($query);
+if(mysql_error()){echo mysql_error()."<br>".$query."<br>";}
+
+
+echo '<table class="t1">';
+echo "<tr>";
+	echo "<th>id</th>";
+	echo "<th>tipo1</th>";
+	echo "<th>sociedad</th>";
+	echo "<th>proveedor</th>";
+	echo "<th>tipo2</th>";
+	echo "<th>fecha</th>";
+	echo "<th>fecha_sistema</th>";
+	echo "<th>tipo3</th>";
+	echo "<th>importe</th>";
+echo "</tr>";
+
+while($row=mysql_fetch_array($result)){
+	echo "<tr>";
+	echo '<td>'.$row["id"].'</td>';
+	echo '<td>'.$row["tipo1"].'</td>';
+	echo '<td>'.$row["sociedad"].'</td>';
+	echo '<td>'.$row["proveedor"].'</td>';
+	echo '<td>'.$row["tipo2"].'</td>';
+	echo '<td>'.$row["fecha"].'</td>';
+	echo '<td>'.$row["fecha_sistema"].'</td>';
+	echo '<td>'.$row["tipo3"].'</td>';
+	echo '<td>'.$row["importe"].'</td>';
+	echo "</tr>".chr(10);
+}
+?>
+</table></center>
